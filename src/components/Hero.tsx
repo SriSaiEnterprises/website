@@ -82,28 +82,23 @@ const Hero = () => {
         </div>
 
         {/* Right Section - Image with Shadow (50% on desktop, full on mobile) */}
-        {/* Right Section - Image with Shadow (50% on desktop, full on mobile) */}
-{/* Right Section - Image with Shadow (50% on desktop, full on mobile) */}
-<div className="w-full md:w-1/2 h-[400px] md:h-auto flex items-center justify-center z-10 relative">
-  {/* Image Wrapper with Shadow */}
-  <div className="relative w-[90%] h-[90%]">
-    {/* Shadow */}
-    <div
-      className="absolute w-full md:h-full h-[75%] bg-black opacity-80"
-      style={{
-        transform: 'translate(15px, 15px)', // Offset shadow to the right and bottom
-        zIndex: 5, // Behind the image
-      }}
-    />
-    {/* Image */}
-    <img
-      src={heroImg}
-      alt="Corporate Gifting Adventure"
-      className="relative w-full md:h-full object-contain max-h-[600px] md:max-h-[800px]"
-      style={{ zIndex: 10 }} // Image above the shadow
-    />
-  </div>
-</div>
+        <div className="w-full md:w-1/2 h-[400px] md:h-auto flex items-center justify-center z-10 relative">
+          <div className="relative w-[90%] h-[90%]">
+            <div
+              className="absolute w-full md:h-full h-[75%] bg-black opacity-80"
+              style={{
+                transform: 'translate(15px, 15px)', 
+                zIndex: 5,
+              }}
+            />
+            <img
+              src={heroImg}
+              alt="Corporate Gifting Adventure"
+              className="relative w-full md:h-full object-contain max-h-[600px] md:max-h-[800px]"
+              style={{ zIndex: 10 }} // Image above the shadow
+            />
+          </div>
+        </div>
 
 
       </div>

@@ -13,13 +13,30 @@ import NotFound from "./pages/NotFound";
 const queryClient = new QueryClient();
 
 const App = () => (
-  <QueryClientProvider client={queryClient} >
+  <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
       <Sonner />
       <BrowserRouter>
         <div className="relative">
-          <Routes >
+          {/* Add Structured Data for SEO */}
+          <script type="application/ld+json">
+            {JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "Sri Sai Enterprises",
+              "url": "https://thesrisaienterprises.com",
+              "logo": "https://thesrisaienterprises.com/logo.png",
+              "description": "Sri Sai Enterprises offers the best corporate gifting solutions. Discover unique and exclusive gifts for your business needs.",
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+91 9663467040",
+                "contactType": "customer service"
+              }
+            })}
+          </script>
+
+          <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/products" element={<Products />} />
             <Route path="/about" element={<About />} />

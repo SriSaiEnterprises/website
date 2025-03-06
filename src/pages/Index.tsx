@@ -16,10 +16,18 @@ const Index = () => {
     <div className="min-h-screen bg-white relative">
       {/* SEO Metadata */}
       <Helmet>
-        <title>Best Gifting Platform - Exclusive Collections</title>
-        <meta name="description" content="Discover unique and exclusive gifts on our platform. Shop now for personalized gifting options!" />
-        <meta name="keywords" content="gifts, online shopping, personalized gifts, best gifting platform" />
+        <title>Sri Sai Enterprises - Best Corporate Gifting Platform</title>
+        <meta name="description" content="Sri Sai Enterprises offers the best corporate gifting solutions. Discover unique and exclusive gifts for your business needs. Shop now for personalized gifting options!" />
+        <meta name="keywords" content="Sri Sai Enterprises, corporate gifting, business gifts, personalized gifts, best gifting platform" />
         <meta name="author" content="Sri Sai Enterprises" />
+        <meta property="og:title" content="Sri Sai Enterprises - Best Corporate Gifting Platform" />
+        <meta property="og:description" content="Sri Sai Enterprises offers the best corporate gifting solutions. Discover unique and exclusive gifts for your business needs." />
+        <meta property="og:image" content="https://thesrisaienterprises.com/logo.png" />
+        <meta property="og:url" content="https://thesrisaienterprises.com" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Sri Sai Enterprises - Best Corporate Gifting Platform" />
+        <meta name="twitter:description" content="Sri Sai Enterprises offers the best corporate gifting solutions. Discover unique and exclusive gifts for your business needs." />
+        <meta name="twitter:image" content="https://thesrisaienterprises.com/logo.png" />
       </Helmet>
 
       <Navbar />
