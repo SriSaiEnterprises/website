@@ -40,15 +40,6 @@ const Index = () => {
       </Suspense>
 
       <Footer />
-
-      {/* Call Now Button - Mobile Only */}
-      <Link
-        to="/contact"
-        className="fixed bottom-4 right-4 md:hidden bg-[#0E0E55] text-white p-3 rounded-full shadow-lg hover:bg-[#302c2c] transition-colors duration-300 z-50"
-        aria-label="Call Now"
-      >
-        <Phone size={24} aria-hidden="true" />
-      </Link>
     </div>
   );
 };
