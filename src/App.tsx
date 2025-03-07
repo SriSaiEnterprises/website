@@ -7,12 +7,12 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Phone } from "lucide-react";
 import Index from "./pages/Index";
-import Products from "./pages/Products/Products";
-import About from "./pages/about/About";
-import Contact from "./pages/Contact/Contact";
+import Products from "./pages/product";
+import About from "./pages/about";
+import Contact from "./pages/contact";
 import NotFound from "./pages/NotFound";
 import AuthPage from "./pages/auth";
-import Admin from "./pages/Admin/Admin";
+import Admin from "./pages/admin";
 import ProtectedRoute from "./components/ProtectedAuth";
 
 const queryClient = new QueryClient();
