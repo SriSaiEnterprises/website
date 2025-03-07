@@ -1,10 +1,10 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import electronics from '../images/electronics.jpg';
-import techAndgadgets from '../images/tech&Gadgets.jpg';
-import corporateGift from '../images/corporate_gifts.jpg';
-import printing from '../images/printing.jpg';
-import group from '../images/group.jpg';
+import electronics from '../../images/electronics.jpg';
+import techAndgadgets from '../../images/tech&Gadgets.jpg';
+import corporateGift from '../../images/corporate_gifts.jpg';
+import printing from '../../images/printing.jpg';
+import group from '../../images/group.jpg';
 
 const About = () => {
   return (
