@@ -1,7 +1,5 @@
 import { lazy, Suspense } from "react";
 import { Helmet } from "react-helmet";
-import { Phone } from "lucide-react";
-import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 

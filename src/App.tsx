@@ -1,5 +1,6 @@
-// src/App.tsx
-import { useState } from "react";
+import { useEffect } from 'react';
+import { useState } from 'react';
+import { useSearchParams, useNavigate } from 'react-router-dom';
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -19,6 +20,16 @@ const queryClient = new QueryClient();
 
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false); // Authentication state
+  const [searchParams] = useSearchParams();
+  const navigate = useNavigate();
+
+  // Handle redirects from 404.html
+  useEffect(() => {
+    const redirect = searchParams.get('redirect');
+    if (redirect) {
+      navigate(redirect); // Redirect to the intended route
+    }
+  }, [searchParams, navigate]);
 
   // Define the WhatsApp message and encode it
   const phoneNumber = "919663467040";
@@ -31,7 +42,7 @@ const App = () => {
       <TooltipProvider>
         <Toaster />
         <Sonner />
-        <BrowserRouter>
+        <BrowserRouter basename="/">
           <div className="relative">
             {/* Add Structured Data for SEO */}
             <script type="application/ld+json">
@@ -51,16 +62,15 @@ const App = () => {
             </script>
 
             <Routes>
-              {/* Public Routes */}
-                <Route path="/" element={<Index />} />
-                <Route path="/products" element={<Products />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/auth" element={<AuthPage setIsAuthenticated={setIsAuthenticated} />} />
-                <Route path="*" element={<NotFound />} />
-                <Route element={<ProtectedRoute isAuthenticated={isAuthenticated} />}>
+              <Route path="/" element={<Index />} />
+              <Route path="/products" element={<Products />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/auth" element={<AuthPage setIsAuthenticated={setIsAuthenticated} />} />
+              <Route path="*" element={<NotFound />} />
+              <Route element={<ProtectedRoute isAuthenticated={isAuthenticated} />}>
                 <Route path="/admin" element={<Admin />} />
-                </Route>
+              </Route>
             </Routes>
 
             {/* Call Now Button - Mobile Only */}
