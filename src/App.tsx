@@ -1,6 +1,5 @@
-import { useEffect } from 'react';
-import { useState } from 'react';
-import { useSearchParams, useNavigate } from 'react-router-dom';
+// src/App.tsx
+import { useState } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -8,28 +7,18 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Phone } from "lucide-react";
 import Index from "./pages/Index";
-import Products from "./pages/product";
-import About from "./pages/about";
-import Contact from "./pages/contact";
+import Products from "./pages/product/index";
+import About from "./pages/about/index";
+import Contact from "./pages/contact/index";
 import NotFound from "./pages/NotFound";
 import AuthPage from "./pages/auth";
-import Admin from "./pages/admin";
+import Admin from "./pages/admin/index";
 import ProtectedRoute from "./components/ProtectedAuth";
 
 const queryClient = new QueryClient();
 
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false); // Authentication state
-  const [searchParams] = useSearchParams();
-  const navigate = useNavigate();
-
-  // Handle redirects from 404.html
-  useEffect(() => {
-    const redirect = searchParams.get('redirect');
-    if (redirect) {
-      navigate(redirect); // Redirect to the intended route
-    }
-  }, [searchParams, navigate]);
 
   // Define the WhatsApp message and encode it
   const phoneNumber = "919663467040";
@@ -42,7 +31,7 @@ const App = () => {
       <TooltipProvider>
         <Toaster />
         <Sonner />
-        <BrowserRouter basename="/">
+        <BrowserRouter>
           <div className="relative">
             {/* Add Structured Data for SEO */}
             <script type="application/ld+json">
@@ -62,13 +51,14 @@ const App = () => {
             </script>
 
             <Routes>
+              {/* Public Routes */}
               <Route path="/" element={<Index />} />
-              <Route path="/products" element={<Products />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/auth" element={<AuthPage setIsAuthenticated={setIsAuthenticated} />} />
-              <Route path="*" element={<NotFound />} />
-              <Route element={<ProtectedRoute isAuthenticated={isAuthenticated} />}>
+                <Route path="/products" element={<Products />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/auth" element={<AuthPage setIsAuthenticated={setIsAuthenticated} />} />
+                <Route path="*" element={<NotFound />} />
+                <Route element={<ProtectedRoute isAuthenticated={isAuthenticated} />}>
                 <Route path="/admin" element={<Admin />} />
               </Route>
             </Routes>
